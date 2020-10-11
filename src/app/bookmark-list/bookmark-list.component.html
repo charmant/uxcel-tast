@@ -1,0 +1,31 @@
+<div class="headline">
+  <div class="title">
+    <h1>Bookmarks</h1>
+    <span *ngIf="!dataLoading">{{filteredBookmarks.length}}</span>
+  </div>
+  <div class="search">
+    <input type="text" [(ngModel)]="search">
+    <span class="icon" *ngIf="!search">
+      <svg width="20" height="20">
+        <use xlink:href="#icon-search"></use>
+      </svg>
+      Search
+    </span>
+  </div>
+</div>
+
+<div *ngIf="dataLoading; else elseBlock">
+  <div class="bookmark-list">
+    <app-bookmark-skeleton *ngFor="let bookmark of filteredBookmarks"></app-bookmark-skeleton>
+  </div>
+</div>
+
+<ng-template #elseBlock>
+  <div class="bookmark-list" *ngIf="filteredBookmarks.length">
+    <app-bookmark [bookmarkId]="bookmarkId" [bookmark]="bookmark" *ngFor="let bookmark of filteredBookmarks; index as bookmarkId"></app-bookmark>
+  </div>
+  <div class="empty-list" *ngIf="!filteredBookmarks.length">
+    <p>There does't seem to be anything</p>
+  </div>
+</ng-template>
+
