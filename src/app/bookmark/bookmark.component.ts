@@ -6,13 +6,15 @@ import { Router } from '@angular/router';
   templateUrl: './bookmark.component.html',
   styleUrls: ['./bookmark.component.scss']
 })
+
 export class BookmarkComponent implements OnInit {
-  @Input() bookmark: {
-    title: string,
-    image: string,
-    marked: boolean,
+  @Input() bookmark: any = {
+    title: '',
+    image: '',
+    marked: false,
   };
   @Input() bookmarkId: number;
+  @Input() skeleton;
   constructor(
     private router: Router,
   ) { }

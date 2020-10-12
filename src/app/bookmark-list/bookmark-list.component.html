@@ -14,18 +14,10 @@
   </div>
 </div>
 
-<div *ngIf="dataLoading; else elseBlock">
-  <div class="bookmark-list">
-    <app-bookmark-skeleton *ngFor="let bookmark of filteredBookmarks"></app-bookmark-skeleton>
-  </div>
+<div class="bookmark-list" *ngIf="filteredBookmarks.length">
+  <app-bookmark [skeleton]="dataLoading" [bookmarkId]="bookmarkId" [bookmark]="bookmark" *ngFor="let bookmark of filteredBookmarks; index as bookmarkId"></app-bookmark>
 </div>
-
-<ng-template #elseBlock>
-  <div class="bookmark-list" *ngIf="filteredBookmarks.length">
-    <app-bookmark [bookmarkId]="bookmarkId" [bookmark]="bookmark" *ngFor="let bookmark of filteredBookmarks; index as bookmarkId"></app-bookmark>
-  </div>
-  <div class="empty-list" *ngIf="!filteredBookmarks.length">
-    <p>There does't seem to be anything</p>
-  </div>
-</ng-template>
+<div class="empty-list" *ngIf="!filteredBookmarks.length">
+  <p>There does't seem to be anything</p>
+</div>
 

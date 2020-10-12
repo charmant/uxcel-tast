@@ -1,10 +1,11 @@
 <article class="bookmark" (click)="onClick()">
-  <div class="ratio-16-9 bookmark__img">
+  <div class="ratio-16-9 bookmark__img {{skeleton ? 'skeleton' : ''}}">
     <img *ngIf="bookmark.image" src="{{ bookmark.image }}" alt="{{ bookmark.title }}">
   </div>
-  <div class="bookmark__wrap">
+  <div class="bookmark__wrap {{skeleton ? 'skeleton' : ''}}">
     <p>{{ bookmark.title }}</p>
-    <svg class="bookmark__btn" width="24" height="24" (click)="bookmark.marked = !bookmark.marked; $event.stopPropagation()">
+    <svg class="bookmark__btn" width="24" height="24"  *ngIf="bookmark.marked"
+         (click)="bookmark.marked = !bookmark.marked; $event.stopPropagation()">
       <use [attr.xlink:href]="bookmark.marked ? '#icon-bookmark-filled' : '#icon-bookmark'"></use>
     </svg>
   </div>
