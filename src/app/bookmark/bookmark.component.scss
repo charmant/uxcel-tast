@@ -1,54 +1,5 @@
-@mixin bookmark {
-  :host {
-    .bookmark {
-      &__img {
-        position: relative;
-        margin-bottom: 1rem;
-        border-radius: .7rem;
-
-        &:after {
-          z-index: 1;
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          visibility: hidden;
-          opacity: 0;
-          transition: .3s;
-          background-color: rgba(50, 50, 50, .4);
-        }
-
-        @media screen and (max-width: 768px) {
-          margin-bottom: .5rem;
-        }
-      }
-
-      &__wrap {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        min-height: 3rem;
-        border-radius: .7rem;
-
-        @media screen and (max-width: 768px) {
-          min-height: 2rem;
-        }
-      }
-
-      p {
-        margin: 0;
-        padding-right: 2rem;
-        padding-left: .5rem;
-      }
-    }
-  }
-}
-
-@include bookmark;
-
 .bookmark {
+
   cursor: pointer;
 
   &:hover {
@@ -56,6 +7,48 @@
       opacity: 1;
       visibility: visible;
     }
+  }
+
+  &__img {
+    position: relative;
+    margin-bottom: 1rem;
+    border-radius: .7rem;
+
+    &:after {
+      z-index: 1;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      visibility: hidden;
+      opacity: 0;
+      transition: .3s;
+      background-color: rgba(50, 50, 50, .4);
+    }
+
+    @media screen and (max-width: 768px) {
+      margin-bottom: .5rem;
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 3rem;
+    border-radius: .7rem;
+
+    @media screen and (max-width: 768px) {
+      min-height: 2rem;
+    }
+  }
+
+  p {
+    margin: 0;
+    padding-right: 2rem;
+    padding-left: .5rem;
   }
 
   a {
@@ -69,9 +62,11 @@
     height: 2.4rem;
   }
 
-
-
   @media screen and (max-width: 768px) {
     font-size: 1.2rem;
+  }
+
+  &--skeleton {
+    cursor: default;
   }
 }

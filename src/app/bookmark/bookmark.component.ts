@@ -14,7 +14,7 @@ export class BookmarkComponent implements OnInit {
     marked: false,
   };
   @Input() bookmarkId: number;
-  @Input() skeleton;
+  @Input() skeleton: boolean;
   constructor(
     private router: Router,
   ) { }
@@ -22,7 +22,8 @@ export class BookmarkComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClick(): void {
-    this.router.navigate(['/bookmarks', this.bookmarkId]).then();
+  onClick(): any {
+    if (this.skeleton) { return; }
+    return this.router.navigate(['/bookmarks', this.bookmarkId]);
   }
 }

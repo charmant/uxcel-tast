@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
 import { BookmarkListComponent } from './bookmark-list/bookmark-list.component';
-import { BookmarkSkeletonComponent } from './bookmark-skeleton/bookmark-skeleton.component';
 import { BookmarkComponent } from './bookmark/bookmark.component';
 import { BookmarkDetailsComponent } from './bookmark-details/bookmark-details.component';
 
@@ -14,7 +13,6 @@ import { BookmarkDetailsComponent } from './bookmark-details/bookmark-details.co
   declarations: [
     AppComponent,
     BookmarkListComponent,
-    BookmarkSkeletonComponent,
     BookmarkComponent,
     BookmarkDetailsComponent,
   ],
